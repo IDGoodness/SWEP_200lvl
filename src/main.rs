@@ -1,3 +1,5 @@
+use std::io;
+
 fn fibonacci(n: u32) -> u32 {
     if n <= 1 {
         return n;
@@ -16,7 +18,16 @@ fn fibonacci(n: u32) -> u32 {
 }
 
 fn main() {
-    let n = 10; // Change this value to generate a different number of Fibonacci numbers
+    // let n = 10; // The value, 10 can be changed to a preferred nth term of the Fibonacci series
+
+
+    
+    // Take input from user this is n
+
+    println!("Enter a value (where the Fibonacci series will stop): ");
+    let mut n = String::new();
+    io::stdin().read_line(&mut n).expect("Failed to read line");
+    let n: u32 = n.trim().parse().expect("Invalid input");
 
     for i in 0..n {
         println!("Fibonacci({}) = {}", i, fibonacci(i));
